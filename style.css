@@ -1,0 +1,79 @@
+/* Phase 2.2 Gap fix */
+
+body {
+    background-color: #e6e6e6;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding-top: 18px;
+}
+
+h1 {
+    color: #2f4f4f;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+h2 {
+    color: #555555;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+main {
+    padding-top: 0;
+    padding-bottom: 32px;
+}
+
+.stair-section {
+    margin-bottom: 24px;
+}
+
+.info-grid section {
+    background-color: #f3f3f3;
+    padding: 20px;
+    height: 100%;
+}
+
+.further-info {
+    border-top: 1px solid #b8b8b8;
+    margin-top: 28px;
+    padding-top: 12px;
+}
+
+.closing {
+    font-style: italic;
+}
+
+.intro {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.page-divider {
+    border: 0;
+    border-top: 1px solid #999999;
+    opacity: 1;
+    margin: 0 0 18px;
+}
+
+.section-title {
+    margin-bottom: 12px;
+}
+
+.hero-text p {
+    margin-bottom: 14px;
+}
+
+.hero-text h2 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.info-grid h2 {
+    margin-top: 0;
+}
