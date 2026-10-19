@@ -1,0 +1,222 @@
+/* Phase 3.3 instructions buton */
+
+body {
+    background-color: #e6e6e6;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding-top: 18px;
+}
+
+h1 {
+    color: #2f4f4f;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+h2 {
+    color: #555555;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+main {
+    padding-top: 0;
+    padding-bottom: 32px;
+}
+
+.stair-section {
+    margin-bottom: 24px;
+}
+
+.info-grid section {
+    background-color: #f3f3f3;
+    padding: 20px;
+    height: 100%;
+}
+
+.further-info {
+    border-top: 1px solid #b8b8b8;
+    margin-top: 28px;
+    padding-top: 12px;
+}
+
+.closing {
+    font-style: italic;
+}
+
+.intro {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.page-divider {
+    border: 0;
+    border-top: 1px solid #999999;
+    opacity: 1;
+    margin: 0 0 18px;
+}
+
+.section-title {
+    margin-bottom: 12px;
+}
+
+.hero-text p {
+    margin-bottom: 14px;
+}
+
+.hero-text h2 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.info-grid h2 {
+    margin-top: 0;
+}
+
+/* The image and iframe share the same space: 100% of their column width.
+   Start with a 430px height for narrow screens. */
+.hero-image img,
+.hero-image iframe {
+    display: block;
+    width: 100%;
+    height: 430px;
+}
+
+/* contain shows the whole image without stretching it (gaps may remain).
+   cover fills the image area without stretching it (edges may be cropped). */
+.hero-image img {
+    object-fit: contain;
+}
+
+/* Remove the iframe's default border. */
+.hero-image iframe {
+    border: 0;
+}
+
+/* Media queries test the browser width, NOT the image width. */
+@media (min-width: 700px) {
+    .hero-image img,
+    .hero-image iframe {
+        height: 560px;
+    }
+
+    .hero-image img {
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1400px) {
+    main.container {
+        max-width: 1600px;
+    }
+
+    /* The 3D viewer uses mobile mode at 980px wide or less.
+       A 1050px content area plus Bootstrap's 12px padding each side = 1074px. */
+    /* flex: grow shrink basis (starting size).
+       0 0 1074px: image column stays fixed; no growing or shrinking.
+       1 1 0: text column grows into remaining space and may shrink. */
+    .hero-image {
+        flex: 0 0 1074px;
+        width: 1074px;
+    }
+
+    .hero-text {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+    }
+
+    /* At 1400px browser width and above, both use a 620px height. */
+    .hero-image img,
+    .hero-image iframe {
+        height: 620px;
+    }
+}
+
+/* Opacity hides the iframe without setting its size to zero.
+   Unlike display:none, this lets the 3D viewer load at its proper width. */
+/* Container stays in place; reference point for the overlaid iframe. */
+.model-stage {
+    position: relative;
+}
+
+/* Overlay iframe on image: absolute removes it from normal layout;
+   inset:0 aligns edges; opacity:0 hides; pointer-events:none blocks clicks. */
+.model-stage iframe {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.4s ease;
+}
+
+/* JS adds is-visible to reveal the iframe and allow interaction. */
+.model-stage iframe.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* JS adds is-hidden to hide the static image without moving it. */
+.model-stage img.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Fade the static image when JS switches is-hidden. */
+.model-stage img {
+    transition: opacity 1.4s ease;
+}
+
+/* Match the Week 6 controls; flex keeps buttons alongside the hint. */
+.model-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.model-toggle,
+.instructions-toggle {
+    padding: 10px 16px;
+    border: 1px solid #666666;
+    background-color: #f3f3f3;
+    color: #333333;
+    font: inherit;
+    cursor: pointer;
+}
+
+.model-toggle:hover,
+.instructions-toggle:hover {
+    background-color: #ffffff;
+}
+
+.viewer-hint {
+    margin-left: 4px;
+    font-size: 14px;
+    color: #555555;
+}
+
+/* hidden in HTML until the Instructions button is clicked. */
+.model-instructions {
+    margin-top: 10px;
+    padding: 12px 14px;
+    background-color: #f3f3f3;
+    border-left: 4px solid #2f4f4f;
+    font-size: 14px;
+}
+
+/* Override Bootstrap hidden display so the panel keeps its space. */
+.model-instructions[hidden] {
+    display: block !important;
+    visibility: hidden;
+}
+
+.model-instructions p {
+    margin: 0;
+}
